@@ -2,6 +2,7 @@ package gtools
 
 import (
 	"github.com/sirupsen/logrus"
+	"gopkg.in/natefinch/lumberjack.v2"
   )
 
 func LogInit() {
