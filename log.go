@@ -5,10 +5,16 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
   )
 
-func LogInit() {
+func LogInit(logPath, logFile string) {
+	if logPath == "" {
+		logPath = "."
+	}
+	if logFile == "" {
+		logFile = "run.log"
+	}
   logrus.SetFormatter(&logrus.JSONFormatter{})
 	logrus.SetOutput(&lumberjack.Logger{
-		Filename:   LogPath + LogFile,
+		Filename:   logPath + "/" + logFile,
 		MaxSize:    5,    
 		MaxBackups: 10,   
 		MaxAge:     3,  
